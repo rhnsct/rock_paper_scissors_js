@@ -67,22 +67,27 @@ function declareWinner(compScore, playerScore) {
     };
 };
 
+function updateScores(computerScore, playerScore) {
+    let computerScoreText = document.getElementById('computerScore');
+    let playerScoreText = document.getElementById('playerScore');
+    computerScoreText.textContent = `${computerScore}`
+    playerScoreText.textContent = `${playerScore}`
+
+}
 
 
 function play(clicked_id) {
     let go = round(computerPlay(), clicked_id);
-    let computerScoreText = document.getElementById('computerScore');
-    let playerScoreText = document.getElementById('playerScore');
+    
     
     if (go == 0) {
         console.log(go);
     } else if (go == 1){
-        computerScore += 1
-        computerScoreText.textContent = `${computerScore}`
-        console.log(go);
+        computerScore += 1;
+        updateScores(computerScore, playerScore);
     } else {
-        playerScore += 1
-        playerScoreText.textContent = `${playerScore}`
+        playerScore += 1;
+        updateScores(computerScore, playerScore);
         console.log(go);
     };
     
@@ -99,5 +104,6 @@ function play(clicked_id) {
 function reset(){
     playerScore = 0
     computerScore = 0
+    updateScores(computerScore, playerScore);
     showHide()
 };
