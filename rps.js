@@ -107,15 +107,16 @@ function play(clicked_id) {
 // plays one complete round of rock-paper-scissors and then checks if anyone has reached 5 points
 // doesn't add points for draws
 // updates scoreboard
-
-    let go = round(computerPlay(), clicked_id);
+    computerMove = computerPlay()
+    let go = round(computerMove, clicked_id);
     if (go == 0) {
         changeResultText('Draw!')
     } else if (go == 1){
-        changeResultText(`Computer wins! ${computerPlay.charAt(0).toUpperCase() + computerPlay.slice(1)} beats ${playerSelection}.`);
+        changeResultText(`Computer wins! ${computerMove.charAt(0).toUpperCase() + computerMove.slice(1)} beats ${clicked_id}.`);
         computerScore += 1;
         updateScores(computerScore, playerScore);
     } else {
+        changeResultText(`Player wins! ${clicked_id.charAt(0).toUpperCase() + clicked_id.slice(1)} beats ${computerMove}.`);
         playerScore += 1;
         updateScores(computerScore, playerScore);
     };
