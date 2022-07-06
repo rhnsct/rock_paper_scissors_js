@@ -5,30 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="style.css">
-    <!-- <script src="listeners.js"></script> -->
     <script src="rps.js"></script>
 </head>
 
 <body>
 
-    <h2>Rock and Go</h2>
-    <div class="choices" id="choices" style="display: flex;">
-        <img onclick="game(this.id)" src="/images/large-rock.png" class="choice" alt="rock" id="rock">
-        <img onclick="game(this.id)" src="/images/paper_png.png" class="choice" alt="paper" id="paper">
-        <img onclick="game(this.id)" src="/images/scissors_png.png" class="choice" alt="scissors" id="scissors">
-    </div>
-    
-    <div class="endgame" id="endgame">
-        <p class="finalResult"></p>
-        <button onclick="reset()">Play Again</button>
-    </div>
+    <div class="container">
+        <h2 id="title">Rock and Go</h2>
+        <div class="choices" id="choices" style="display: flex;">
+            <div class="imageContainer"><img onclick="play(this.id)" src="/images/large-rock.png" class="choice" alt="rock" id="rock"></div>
+            <div class="imageContainer"><img onclick="play(this.id)" src="/images/paper_png.png" class="choice" alt="paper" id="paper"></div>
+            <div class="imageContainer"><img onclick="play(this.id)" src="/images/scissors_png.png" class="choice" alt="scissors" id="scissors"></div>
+        </div>
+        <div class="roundResult">
+            <p id="resultText">Make a choice to begin.</p>
+        </div>
+        
+        <div class="endgame" id="endgame">
+            <p id="finalResult" class="finalResult"></p>
+            <button onclick="reset()">Play Again</button>
+        </div>
 
-    <div class="scoreboard">
-        <h3 id="playerScore">0</h3>
-        <h3>|</h3>
-        <h3 id="computerScore">0</h3>
+        <div id="scoreboard" class="scoreboard">
+            <h3 id="playerScore">0</h3>
+            <h3>|</h3>
+            <h3 id="computerScore">0</h3>
+        </div>
     </div>
-    
     
     
 </body>
